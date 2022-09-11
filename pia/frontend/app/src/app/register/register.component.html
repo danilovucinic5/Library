@@ -1,0 +1,137 @@
+
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav">
+                    <li class="nav-item" >
+                        <a class="nav-link active " style="color:white" href="http://localhost:4200/">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white" href="http://localhost:4200/register">Register</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/login">Login</a>
+                    </li>
+                     
+                     <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/search">Search</a>
+                     </li>
+                </ul>
+            </nav>
+         </div>
+    </div>
+    <div class="row text-center" >
+        <div class="col-12">
+
+           
+            <table class="table table-dark table-striped" >
+
+                <tbody>
+
+                    <tr>
+                        <td colspan='2'> 
+                            <h3 style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Register here</h3>
+                        </td>
+                    
+                    </tr>
+            <tr>
+            
+                <td>Firstname</td>
+                <td>
+                    <input type="text" name="firstname" [(ngModel)]="firstname" >
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td>Lastname</td>
+                <td>
+                    <input type="text" name="lastname" [(ngModel)]="lastname">
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td>Username</td>
+                <td>
+                    <input type="text" name="username" [(ngModel)]="username">
+                </td>
+            </tr>
+            
+            <tr>
+                <td>Password</td>
+                <td>
+                    <input type="password"   name="password"  [(ngModel)]="password">
+                </td>
+            </tr>
+            <tr>
+                <td>Password Verification</td>
+                <td>
+                    <input type="password" name="passwordVer"  [(ngModel)]="passwordVer">
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input type="text" name="address"  [(ngModel)]="address">
+                </td>
+            </tr>
+            <tr>
+                <td>Telephone</td>
+                <td>
+                    <input type="text" name="telephone"  [(ngModel)]="telephone">
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input type="text" name="email"  [(ngModel)]="email">
+                </td>
+            </tr>
+            <tr>
+                <td>Picture:</td>
+                <td>
+                    <input type='file' name='type' (change)='uploadFile($event)' >
+                </td>
+            </tr>
+          
+            
+           
+            <tr>
+                <td colspan='2'> 
+                    <button class="btn btn-primary btn-lg" (click)="register()" >Register </button>
+                </td>
+            
+            </tr>
+            <tr>
+                <td colspan='2'> 
+                    <span class="error">{{messageError}}</span>
+                </td>
+            
+            </tr>
+            <tr>
+                <td colspan='2'> 
+                    <span class="correct">{{messageCorrect}}</span>
+                </td>
+            
+            </tr>
+            
+        </tbody>
+            
+            
+            </table>
+
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vucinic-Elektrotehnicki fakultet 2022.-All rights reserved</div>
+    </div>
+ 
+</div>
+
+
+

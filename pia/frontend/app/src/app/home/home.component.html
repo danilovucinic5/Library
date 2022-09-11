@@ -1,0 +1,89 @@
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav">
+                    <li class="nav-item" >
+                        <a class="nav-link active " style="color:white" href="http://localhost:4200/">Home</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" style="color:white" href="http://localhost:4200/register">Register</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/login">Login</a>
+                    </li>
+                     
+                     <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/search">Search books</a>
+                     </li>
+                     
+                </ul>
+            </nav>
+         </div>
+    </div>
+    <div class="row text-center"  >
+        <div class="col-12">
+            <h1 style="font-family: Tahoma">Top books</h1>
+
+            
+
+            <div class="slideshow-container" *ngFor='let book of bestBooks'>
+
+                
+                <div class="mySlides text-center" >
+                   
+                    <img src="{{book.picture}}" width="300px" height="300px"  style="margin: auto;">
+                    
+                </div> 
+
+            </div>
+
+            </div>
+
+     </div>
+    
+        <!--
+
+        <div class="row text-center"  >
+
+            <div class="col-12">
+                <a class="prev"  (click)="plusSlides(-1)">&#10094;</a>
+                <a class="next"  (click)="plusSlides(1)">&#10095;</a>
+           
+           
+            </div>
+
+
+        </div>
+        -->
+
+        <div class="row text-center"  >
+
+            <div class="col-12">
+              
+           
+            <div style="text-align:center">
+                <span class="dot" (click)="currentSlide(1)"></span>
+                <span class="dot" (click)="currentSlide(2)"></span>
+                <span class="dot" (click)="currentSlide(3)"></span>
+            </div>
+            </div>
+
+
+        </div>
+           
+           
+              
+
+
+
+       
+    
+        <div class="row" >
+                <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo            Vucinic-Elektrotehnicki fakultet 2022.-All rights reserved
+                </div>
+        </div>
+ 

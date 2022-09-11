@@ -1,0 +1,74 @@
+
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav">
+                        <li class="nav-item"></li>
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/">Home</a>
+                        <li class="nav-item"></li>
+                        <a class="nav-link" style="color:white" href="http://localhost:4200/register">Register</a>
+                        <li class="nav-item"></li>
+                         <a class="nav-link active" style="color:white"href="http://localhost:4200/login">Login</a>
+                         <li class="nav-item"></li>
+                         <a class="nav-link" style="color:white" href="http://localhost:4200/search">Search books</a>
+                </ul>
+            </nav>
+         </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-12" >
+            <form >
+            
+            
+           
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <td colspan="2"><h2 style="font-family:Tahoma">Login here</h2></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Username
+                        </td>
+                        <td>
+                            Password
+                    
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td> <input type="text"  name="username" [(ngModel)]='username' required ></td>
+                        <td><input type="password"  name="password" [(ngModel)]='password' required></td>
+                        
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                           
+                            <button class="btn btn-primary"(click)='login()' style="padding-top: 10px;"type="submit" >Login</button>
+                        </td>
+                    </tr>
+               
+               
+               <tr>
+                <td colspan="2">
+                    <h3 style="color:red"> {{message}}</h3>
+                </td>
+               </tr>
+            </tbody>
+                </table>
+                
+        </form>
+        
+
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vucinic-Elektrotehnicki fakultet 2022.-All rights reserved</div>
+    </div>
+ 
+</div>
+
+

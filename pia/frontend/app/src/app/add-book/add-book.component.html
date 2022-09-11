@@ -1,0 +1,162 @@
+
+<div *ngIf="loggedUser.type==0">
+
+</div>
+
+
+<div *ngIf="loggedUser.type==2">
+
+</div>
+ 
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active " style="color:white" href="http://localhost:4200/">Home</a>
+                    </li>
+                   
+                     <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/search">Search books</a>
+                     </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/changePass">Change password</a>
+                     </li>
+                   
+                    
+                    <div *ngIf="loggedUser.type==2">
+
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/rentedBooks">Rented books</a>
+                         </li>
+
+                    </div>
+                    <div *ngIf="loggedUser.type==2">
+
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/historyRenting">Renting history</a>
+                         </li>
+                    </div>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/addBook">Add book</a>
+                     </li>
+                    
+                     <div *ngIf="loggedUser.type==0">
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/admin/adminAccepting">List od pendning users</a>
+                         </li>
+                    </div>
+                   
+                    <div *ngIf="loggedUser.type==0">
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/admin/addUser">Add user</a>
+                         </li>
+                    </div>
+                    
+                    <div *ngIf="loggedUser.type==0">
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/admin/allUsers">Update and delete users</a>
+                         </li>
+                    </div>
+                    
+                     
+                    <div *ngIf="loggedUser.type==0">
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/admin/allBooks">Update and delete books</a>
+                         </li>
+                    </div>
+                     
+                     <li class="nav-item">
+                        <a class="nav-link "  style="color:white" href="http://localhost:4200/user/profile">
+                        <img width="75px" height="75px" src="{{loggedUser.picture}}"></a>
+                     </li>
+                    
+                     
+                     <li class="nav-item">
+                        <button class="btn btn-dark" (click)="logout()">Logout</button>
+                     </li>
+                    
+                    
+                    
+                </ul>
+            </nav>
+         </div>
+    </div>
+    <div class="row text-center" >
+       
+
+        <div class="col-12">
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th colspan="8">
+                            <h3>Add book</h3>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Writer(if more separate them with ,)
+                        </th>
+                        <th>
+                            Genres(if more separate them with ,)
+                        </th>
+                        <th>
+                            Publisher
+                        </th>
+                        <th>
+                            Publish year
+                        </th>
+                        <th>
+                            Language
+                        </th>
+                        <th>
+                            Available
+                        </th>
+                        <th>
+                            Picture
+                        </th>
+                        
+                    </tr>
+
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="name" [(ngModel)]="book.name"></td>
+                        <td><input type="text" name="writers" [(ngModel)]="writers"></td>
+                        <td><input type="text" name="genres" [(ngModel)]="genres"></td>
+                        <td><input type="text" name="publisher" [(ngModel)]="book.publisher"></td>
+                        <td><input type="number" name="publishYear" [(ngModel)]="book.publishYear"></td>
+                        <td><input type="text" name="language" [(ngModel)]="book.language"></td>
+                        <td><input type="number" name="available" [(ngModel)]="book.available"></td>
+                        <td><input type='file' name='type' (change)='uploadFile($event)' ></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="8">
+                            <button class="btn btn-primary" (click)="addBook()">Add book</button>
+ 
+                        </td>
+                        <tr>
+                            <td colspan="8">
+                                {{message}}
+    
+                            </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vucinic-Elektrotehnicki fakultet 2022.-All rights reserved</div>
+    </div>
+ 
+</div>

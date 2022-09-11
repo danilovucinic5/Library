@@ -1,0 +1,185 @@
+   
+<div class="container-fluid" >
+    <div class="row" >
+        <div class="col-12" style="text-align:center;">
+            <nav class="navbar navbar-expand" style="background-color:rgb(16, 17, 17)">
+    
+                <ul class="navbar-nav"  >
+                    <li class="nav-item">
+                        <a class="nav-link active " style="color:white" href="http://localhost:4200/">Home</a>
+                    </li>
+                   
+                     <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/search">Search books</a>
+                     </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link " style="color:white" href="http://localhost:4200/changePass">Change password</a>
+                     </li>
+                   
+                    <div *ngIf="loggedUser.type==2 || loggedUser.type==1">
+
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/rentedBooks">Rented books</a>
+                         </li>
+
+                    </div>
+                    <div *ngIf="loggedUser.type==2 || loggedUser.type==1">
+
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/historyRenting">Renting history</a>
+                         </li>
+                    </div>
+                    <div *ngIf="loggedUser.type==2 || loggedUser.type==0">
+
+                       <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/user/addBook">Add book</a>
+                         </li>
+                    </div>
+                     
+                    
+                     <div *ngIf="loggedUser.type==0">
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/admin/adminAccepting">List od pendning users</a>
+                         </li>
+                    </div>
+                   
+                    <div *ngIf="loggedUser.type==0">
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/admin/addUser">Add user</a>
+                         </li>
+                    </div>
+                    
+                    <div *ngIf="loggedUser.type==0">
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/admin/allUsers">Update and delete users</a>
+                         </li>
+                    </div>
+                    
+                     
+                    <div *ngIf="loggedUser.type==0">
+                        <li class="nav-item">
+                            <a class="nav-link " style="color:white" href="http://localhost:4200/admin/allBooks">Update and delete books</a>
+                         </li>
+                    </div>
+                     
+                     <li class="nav-item">
+                        <a class="nav-link "  style="color:white" href="http://localhost:4200/user/profile">
+                        <img width="75px" height="75px" src="{{loggedUser.picture}}"></a>
+                     </li>
+                    
+                     
+                     <li class="nav-item">
+                        <button class="btn btn-dark" (click)="logout()">Logout</button>
+                     </li>
+                    
+                </ul>
+            </nav>
+         </div>
+    </div>
+    <div class="row text-center"   >
+        <div class="col-12">
+            <table class="table table-striped table-dark">
+                <thead >
+                    <tr>
+                        <td colspan="11">
+                            <h2 style="font-family: Tahoma">Book details</h2>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Writers</th>
+                        <th>Genres</th>
+                        <th>Publisher</th>
+                        <th>Publish year</th>
+                        <th>Language</th>
+                        <th>Available</th>
+                        <th>Average Rating</th> 
+                       
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+               <tbody>
+                <tr>
+                    <td>{{book._id}}</td>
+                    <td>{{book.name}}</td>
+                    <td>{{book.writers}}</td>
+                    <td>{{book.genres}} </td>
+                    <td>{{book.publisher}}</td>
+                    <td>{{book.publishYear}}</td>
+                    <td>{{book.language}} </td>
+                    <td>{{book.available}} </td>
+                    <td>{{averageRating}}</td>
+                    
+                    
+                        <div *ngIf="loggedUser.type!=0">
+                            <td>
+                                <input class="btn btn-primary" (click)='rentBook(book._id)' type="submit" value="Rent book">
+                            </td>
+                            
+                        </div>
+                        
+                        <div *ngIf="loggedUser.type==2 || loggedUser.type==0">
+                            <td>
+                                <input class="btn btn-success" (click)='editBook(book._id)' type="submit" value="Edit book">
+                            </td>
+                            
+                        </div>
+                        
+                        <div *ngIf="loggedUser.type==0">
+                            <td>
+                                <input class="btn btn-danger" (click)='deleteBook(book._id)' type="submit" value="Delete book">
+                            </td>
+                            
+                        </div>
+                        
+                </tr>   
+                <tr>
+                    <td colspan="11"><img src="{{book.picture}}" max-height="480px" max-width="300px"></td>
+                </tr>
+                <tr>
+                    <td colspan="11">
+                        <h3> {{message}}</h3>
+                    </td>
+                </tr>
+               </tbody>
+              
+            </table>
+            <table class="table table-warning table-striped ">
+                <thead >
+                    <tr>
+                        <td colspan="4">
+                            <h2 style="font-family: Tahoma">Comments</h2>
+                        </td>
+                    </tr>       
+                    <tr>
+                        <th>Username</th>
+                        <th>Text</th>
+                        <th>Rating</th>
+                        <th>Date</th>
+                        
+                    </tr>
+                </thead>
+               <tbody>
+                <tr *ngFor="let c of book.comments">
+                    <td>{{c.username}}</td>
+                    <td>{{c.text}}</td>
+                    <td>{{c.rating}}</td>
+                    <td>{{c.date}} </td>
+                    
+                </tr>   
+               </tbody>
+              
+            </table>
+        
+        </div>
+    </div>
+    
+    <div class="row" >
+        <div class="col-12 " style="background-color:rgb(16, 17, 17);text-align: center;font-family:Georgia, 'Times New Roman', Times, serif;color:beige">Danilo Vucinic-Elektrotehnicki fakultet 2022.-All rights reserved</div>
+    </div>
+ 
+</div>
