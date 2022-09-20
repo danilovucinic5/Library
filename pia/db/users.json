@@ -430,4 +430,22 @@
   "limit": 12,
   "__v": 0,
   "numberOfRented": 1
+},{
+  "_id": {
+    "$oid": "632a10c993ac70113ce149e1"
+  },
+  "firstname": "Danilo",
+  "lastname": "Vucinic",
+  "username": "admin",
+  "password": "admin123!",
+  "type": 0,
+  "telephone": 123123,
+  "email": "DSAASDdasdsa",
+  "status": "accepted",
+  "address": "DASDSAdsadsa",
+  "__v": 0,
+  "numberOfRented": 0,
+  "limit": 12,
+  "picture": null,
+  "rented": []
 }]
